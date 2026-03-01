@@ -4,6 +4,10 @@ WITH bookings AS (
     BOOKING_DATE,
     BOOKING_STATUS,
     CREATED_AT
-    FROM ref("obt")
+    FROM {{ref("obt")}}
+    GROUP BY BOOKING_ID,
+    BOOKING_DATE,
+    BOOKING_STATUS,
+    CREATED_AT
 )
 SELECT * FROM bookings
